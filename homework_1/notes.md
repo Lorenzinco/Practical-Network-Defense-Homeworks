@@ -2,6 +2,14 @@
 
 Group: ACME-10
 
+Tommaso De Nicola - 2006686
+Lorenzo Colombini - 1973692
+Mattia Romano - 1982886
+
+# Initial Brainstorming
+We initially decided to complete every step of the assignment following the order given by the professor. 
+Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't clearly requested and because all the requests can be implemented through only IPv4.
+
 ## 24/04
 1. brainstorming about functioning of ProxMox interface and about what to do
 2. verified how to download configuration file of firewalls using the vpn connection
