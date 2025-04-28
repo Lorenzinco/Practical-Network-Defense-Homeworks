@@ -33,7 +33,12 @@ Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't 
 1. saved all the images for the documentation about DNS functioning (points 1, 2)
 2. set the NAT (point 3) and tested it (+ screenshot for documentation)
 3. set port forwarding for making DNS available from outside the ACME network
-4. set the proxy:
+
+### Proxy Server and Firewall
+1. set the proxy:
      1. installed squid proxy on the proxy server
      2. kept the default port (3128)
      3. set the minimum configurations for proxying all the http/https connections from the local network (100.100.0.0/16)
+2. firewall rules:
+   1. created float rule for the traffic towards the proxy from any, on both firewalls
+   2. created rule on DMZ to allow the http/s traffic on egress from proxy, on main firewall
