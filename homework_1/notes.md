@@ -26,5 +26,5 @@ Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't 
 4. tested the DNS -> IT WORKS!
 
 ### Regole Firewall per DNS
-1. creato nuovo gruppo di IP -> ACME _> tutti gli IP della nostra infra
-2. creata regola per i pacchetti DNS all'interno della acme network su entrambi i firewall
+1. creato nuovo gruppo di interfacce -> ACME -> tutti le interfacce interne della nostra infra
+2. creata regola (float) per i pacchetti DNS all'interno della acme network su entrambi i firewall
