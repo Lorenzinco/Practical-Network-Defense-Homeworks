@@ -1,0 +1,22 @@
+100.100.1.2 dnsserver.acme-10.test dnsserver
+
+100.100.1.3 logserver.acme-10.test logserver
+
+100.100.1.4 greenbone.acme-10.test greenbone
+
+100.100.1.10 graylog.acme-10.test graylog
+
+
+100.100.2.100 kali.acme-10.test kali
+
+100.100.2.250 arpwatch-clients.acme-10.test
+
+
+100.100.4.100 client-ext-1.acme-10.test client-ext-1
+
+100.100.4.1 fantastic-coffee.acme-10.test fantastic-coffee
+
+
+100.100.6.2 webserver.acme-10.test webserver
+
+100.100.6.3 proxyserver.acme-10.test proxyserver
