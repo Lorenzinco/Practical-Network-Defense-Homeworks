@@ -43,3 +43,11 @@ Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't 
    1. created float rule for the traffic towards the proxy from any, on both firewalls
    2. created rule on DMZ to allow the http/s traffic on egress from proxy, on main firewall
 3. did the tests and took screenshots for documentation
+
+### Servers Access
+1. To make the accessible graylog and greenbone from the DMZ and CLIENT networks:
+   1. create 3 rules for each host/port (graylog/80, graylog/9200, greenbone/9392) in EXTERNAL and CLIENT inerfaces
+   2. create 2 rules for the non http ports on the DMZ on the main router
+2. tested connectivity with screenshots
+
+TODO: allow 9200 and 9392 from proxy (maybe (check next points))
