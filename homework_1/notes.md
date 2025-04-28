@@ -42,3 +42,4 @@ Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't 
 2. firewall rules:
    1. created float rule for the traffic towards the proxy from any, on both firewalls
    2. created rule on DMZ to allow the http/s traffic on egress from proxy, on main firewall
+3. did the tests and took screenshots for documentation
