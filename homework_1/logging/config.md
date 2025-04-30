@@ -23,9 +23,9 @@
 
 2. Decommentato le righe per mettersi in ascolto di traffico UDP sulla porta 514:
 
-> # Provides UDP syslog reception
-> module(load="imudp")
-> input(type="imudp" port="514")
+> -- Provides UDP syslog reception  
+> module(load="imudp")  
+> input(type="imudp" port="514")  
 > 
 
 3. riavviato il servizio
