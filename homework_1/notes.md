@@ -51,3 +51,15 @@ Initially we decided not to implement IPv6 Rules on Firewalls because it wasn't 
 2. tested connectivity with screenshots
 
 TODO: allow 9200 and 9392 from proxy (maybe (check next points))
+
+## 30/4
+### Logging
+1. set up of the logging mechanism with graylog
+2. set the firewall rules to allow logging with graylog and logserver + test
+3. set the firewall rules for greenbone
+4. set the firewall rules for ssh
+5. set the firewall rules for Client access to the DMZ
+6. set the firewall rule on the port 65000 + test
+
+
+
