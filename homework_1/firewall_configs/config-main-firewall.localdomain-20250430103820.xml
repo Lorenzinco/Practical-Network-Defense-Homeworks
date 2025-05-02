@@ -915,7 +915,7 @@
       <direction>in</direction>
       <category>Http server</category>
       <quick>1</quick>
-      <protocol>tcp/udp</protocol>
+      <protocol>tcp</protocol>
       <source>
         <any>1</any>
       </source>
