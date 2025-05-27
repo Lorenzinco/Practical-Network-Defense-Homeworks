@@ -1,0 +1,31 @@
+100.100.1.2 dnsserver.acme-10.test dnsserver
+2001:470:b5b8:a81:1b8:8db5:c93:cf12 dnsserver.acme-10.test dnsserver
+
+100.100.1.3 logserver.acme-10.test logserver
+2001:470:b5b8:a81:282e:3ed2:707e:f853 logserver.acme-10.test logserver
+
+100.100.1.4 greenbone.acme-10.test greenbone
+2001:470:b5b8:a81:7974:4966:e4a9:6d41 greenbone.acme-10.test greenbone
+
+100.100.1.10 graylog.acme-10.test graylog
+2001:470:b5b8:a81:3424:b8b9:a287:66d4 graylog.acme-10.test graylog
+
+
+100.100.2.100 kali.acme-10.test kali
+2001:470:b5b8:a82:411b:8a72:213d kali.acme-10.test kali
+
+100.100.2.250 arpwatch-clients.acme-10.test
+2001:470:b5b8:a82:6748:75c2:4e87:c8a1 arpwatch-clients.acme-10.test
+
+
+100.100.4.100 client-ext-1.acme-10.test client-ext-1
+2001:470:b5b8:a04:e567:d2e:9a11:d551 client-ext-1.acme-10.test client-ext-1
+
+100.100.4.1 fantastic-coffee.acme-10.test fantastic-coffee
+
+
+100.100.6.2 webserver.acme-10.test webserver
+2001:470:b5b8:a06:f03:b78f:7d56:7591 webserver.acme-10.test webserver
+
+100.100.6.3 proxyserver.acme-10.test proxyserver
+2001:470:b5b8:a06:3199:e603:2ad:c8d8 proxyserver.acme-10.test proxyserver
