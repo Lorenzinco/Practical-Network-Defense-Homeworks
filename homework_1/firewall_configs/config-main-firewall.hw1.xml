@@ -234,8 +234,8 @@
       <authorizedkeys>c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5oalUwaTQvRGVNeWNJUFFlODZCRDNkdytRcUk1OFNBc1RXTVJpYnlqUzkgcG5kLW1hbmFnZW1lbnQtZG8tbm90LXJlbW92ZQ==</authorizedkeys>
       <otp_seed/>
     </user>
-    <nextuid>2000</nextuid>
-    <nextgid>2000</nextgid>
+    <nextuid>2003</nextuid>
+    <nextgid>2003</nextgid>
     <timezone>Etc/UTC</timezone>
     <timeservers>0.opnsense.pool.ntp.org 1.opnsense.pool.ntp.org 2.opnsense.pool.ntp.org 3.opnsense.pool.ntp.org</timeservers>
     <webgui>
@@ -308,6 +308,11 @@
     </firmware>
     <serialspeed>115200</serialspeed>
     <primaryconsole>video</primaryconsole>
+    <maximumstates/>
+    <maximumfrags/>
+    <aliasesresolveinterval/>
+    <maximumtableentries/>
+    <pfdebug>urgent</pfdebug>
   </system>
   <interfaces>
     <wan>
@@ -319,6 +324,35 @@
       <ipaddr>100.100.0.2</ipaddr>
       <subnet>24</subnet>
       <gateway>GW_WAN</gateway>
+      <ipaddrv6>dhcp6</ipaddrv6>
+      <dhcp6-ia-pd-len>8</dhcp6-ia-pd-len>
+      <adv_dhcp6_interface_statement_send_options/>
+      <adv_dhcp6_interface_statement_request_options/>
+      <adv_dhcp6_interface_statement_information_only_enable/>
+      <adv_dhcp6_interface_statement_script/>
+      <adv_dhcp6_id_assoc_statement_address_enable/>
+      <adv_dhcp6_id_assoc_statement_address/>
+      <adv_dhcp6_id_assoc_statement_address_id/>
+      <adv_dhcp6_id_assoc_statement_address_pltime/>
+      <adv_dhcp6_id_assoc_statement_address_vltime/>
+      <adv_dhcp6_id_assoc_statement_prefix_enable/>
+      <adv_dhcp6_id_assoc_statement_prefix/>
+      <adv_dhcp6_id_assoc_statement_prefix_id/>
+      <adv_dhcp6_id_assoc_statement_prefix_pltime/>
+      <adv_dhcp6_id_assoc_statement_prefix_vltime/>
+      <adv_dhcp6_prefix_interface_statement_sla_len/>
+      <adv_dhcp6_authentication_statement_authname/>
+      <adv_dhcp6_authentication_statement_protocol/>
+      <adv_dhcp6_authentication_statement_algorithm/>
+      <adv_dhcp6_authentication_statement_rdm/>
+      <adv_dhcp6_key_info_statement_keyname/>
+      <adv_dhcp6_key_info_statement_realm/>
+      <adv_dhcp6_key_info_statement_keyid/>
+      <adv_dhcp6_key_info_statement_secret/>
+      <adv_dhcp6_key_info_statement_expire/>
+      <adv_dhcp6_config_advanced/>
+      <adv_dhcp6_config_file_override/>
+      <adv_dhcp6_config_file_override_path/>
     </wan>
     <lan>
       <if>em1</if>
@@ -328,6 +362,9 @@
       <mtu>1400</mtu>
       <ipaddr>100.100.6.1</ipaddr>
       <subnet>24</subnet>
+      <ipaddrv6>track6</ipaddrv6>
+      <track6-interface>wan</track6-interface>
+      <track6-prefix-id>6</track6-prefix-id>
     </lan>
     <opt1>
       <if>em3</if>
@@ -337,6 +374,9 @@
       <mtu>1400</mtu>
       <ipaddr>100.100.4.1</ipaddr>
       <subnet>24</subnet>
+      <ipaddrv6>track6</ipaddrv6>
+      <track6-interface>wan</track6-interface>
+      <track6-prefix-id>4</track6-prefix-id>
     </opt1>
     <opt2>
       <if>em2</if>
@@ -346,6 +386,10 @@
       <mtu>1400</mtu>
       <ipaddr>100.100.254.1</ipaddr>
       <subnet>30</subnet>
+      <ipaddrv6>track6</ipaddrv6>
+      <track6-interface>wan</track6-interface>
+      <track6-prefix-id>15</track6-prefix-id>
+      <dhcpd6track6allowoverride>1</dhcpd6track6allowoverride>
     </opt2>
     <lo0>
       <internal_dynamic>1</internal_dynamic>
@@ -462,6 +506,34 @@
       </rule>
       <rule>
         <source>
+          <network>CLIENTS_net</network>
+        </source>
+        <destination>
+          <any>1</any>
+        </destination>
+        <descr/>
+        <category/>
+        <interface>wan</interface>
+        <tag/>
+        <tagged/>
+        <poolopts/>
+        <poolopts_sourcehashkey/>
+        <ipprotocol>inet6</ipprotocol>
+        <target>wanip</target>
+        <sourceport/>
+        <updated>
+          <username>root@100.100.4.100</username>
+          <time>1747309818.7276</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </updated>
+        <created>
+          <username>root@100.100.4.100</username>
+          <time>1747309818.7276</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </created>
+      </rule>
+      <rule>
+        <source>
           <network>SERVERS_net</network>
         </source>
         <destination>
@@ -485,6 +557,34 @@
         <created>
           <username>root@100.100.6.3</username>
           <time>1746005048.3235</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </created>
+      </rule>
+      <rule>
+        <source>
+          <network>SERVERS_net</network>
+        </source>
+        <destination>
+          <any>1</any>
+        </destination>
+        <descr/>
+        <category/>
+        <interface>wan</interface>
+        <tag/>
+        <tagged/>
+        <poolopts/>
+        <poolopts_sourcehashkey/>
+        <ipprotocol>inet6</ipprotocol>
+        <target>wanip</target>
+        <sourceport/>
+        <updated>
+          <username>root@100.100.4.100</username>
+          <time>1747309831.5208</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </updated>
+        <created>
+          <username>root@100.100.4.100</username>
+          <time>1747309831.5208</time>
           <description>/firewall_nat_out_edit.php made changes</description>
         </created>
       </rule>
@@ -516,12 +616,40 @@
           <description>/firewall_nat_out_edit.php made changes</description>
         </created>
       </rule>
+      <rule>
+        <source>
+          <network>lan</network>
+        </source>
+        <destination>
+          <any>1</any>
+        </destination>
+        <descr/>
+        <category/>
+        <interface>wan</interface>
+        <tag/>
+        <tagged/>
+        <poolopts/>
+        <poolopts_sourcehashkey/>
+        <ipprotocol>inet6</ipprotocol>
+        <target>wanip</target>
+        <sourceport/>
+        <updated>
+          <username>root@100.100.4.100</username>
+          <time>1747309839.5299</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </updated>
+        <created>
+          <username>root@100.100.4.100</username>
+          <time>1747309839.53</time>
+          <description>/firewall_nat_out_edit.php made changes</description>
+        </created>
+      </rule>
     </outbound>
     <rule>
       <protocol>tcp</protocol>
       <interface>wan</interface>
       <category>Http server</category>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <descr/>
       <tag/>
       <tagged/>
@@ -538,7 +666,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745827346.3938</time>
+        <time>1747309716.8418</time>
         <description>/firewall_nat_edit.php made changes</description>
       </updated>
       <created>
@@ -551,7 +679,7 @@
       <protocol>tcp</protocol>
       <interface>wan</interface>
       <category>Http server</category>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <descr/>
       <tag/>
       <tagged/>
@@ -568,7 +696,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745825630.5936</time>
+        <time>1747309731.999</time>
         <description>/firewall_nat_edit.php made changes</description>
       </updated>
       <created>
@@ -581,7 +709,7 @@
       <protocol>tcp</protocol>
       <interface>wan</interface>
       <category/>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <descr/>
       <tag/>
       <tagged/>
@@ -597,8 +725,8 @@
         <port>65000</port>
       </destination>
       <updated>
-        <username>root@100.100.6.3</username>
-        <time>1746003539.6147</time>
+        <username>root@100.100.4.100</username>
+        <time>1747309740.6213</time>
         <description>/firewall_nat_edit.php made changes</description>
       </updated>
       <created>
@@ -612,7 +740,7 @@
     <rule uuid="b3d58ea3-3403-4ce6-a358-fa2be0f2088f">
       <type>pass</type>
       <interface>lan,opt1,opt2,wan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>any</direction>
       <category>DNS</category>
@@ -627,8 +755,8 @@
         <port>53</port>
       </destination>
       <updated>
-        <username>root@100.100.6.3</username>
-        <time>1746008630.3946</time>
+        <username>root@100.100.4.100</username>
+        <time>1747308795.1577</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -640,7 +768,7 @@
     <rule uuid="a13ffadf-8f51-4ecf-8bc7-6646f6550194">
       <type>pass</type>
       <interface>lan,opt1,opt2,wan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>any</direction>
       <floating>yes</floating>
@@ -654,8 +782,8 @@
         <port>3128</port>
       </destination>
       <updated>
-        <username>root@100.100.6.3</username>
-        <time>1746008706.8117</time>
+        <username>root@100.100.4.100</username>
+        <time>1747309226.6727</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -667,7 +795,7 @@
     <rule uuid="ceb088bb-bf06-4031-bab2-7569f588e109">
       <type>pass</type>
       <interface>lan,opt1,opt2</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>in</direction>
       <floating>yes</floating>
@@ -682,7 +810,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745997649.5879</time>
+        <time>1747309241.476</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -694,7 +822,7 @@
     <rule uuid="f4c1fb1c-0d4a-44c2-ae3b-d739500ebe3d">
       <type>pass</type>
       <interface>lan,opt1,opt2</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>in</direction>
       <floating>yes</floating>
@@ -709,7 +837,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745997707.0251</time>
+        <time>1747309275.0689</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -721,7 +849,7 @@
     <rule uuid="f857704d-8d55-4a0b-881c-9f9407ab7ab8">
       <type>pass</type>
       <interface>lan,opt1,opt2</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>any</direction>
       <floating>yes</floating>
@@ -733,8 +861,8 @@
         <any>1</any>
       </destination>
       <updated>
-        <username>root@100.100.6.3</username>
-        <time>1746008779.1447</time>
+        <username>root@100.100.4.100</username>
+        <time>1747309292.7859</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -746,7 +874,7 @@
     <rule uuid="d8a1a37a-2606-442a-a9c8-b247d2a9a1be">
       <type>pass</type>
       <interface>lan,opt1,opt2</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>any</direction>
       <floating>yes</floating>
@@ -760,8 +888,8 @@
         <port>22</port>
       </destination>
       <updated>
-        <username>root@100.100.6.3</username>
-        <time>1746008287.7729</time>
+        <username>root@100.100.4.100</username>
+        <time>1747309303.8128</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -798,6 +926,34 @@
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
+    <rule uuid="b6cf7163-4834-4e55-ab27-1f9943931346">
+      <type>pass</type>
+      <interface>lan,opt1,opt2</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Request</descr>
+      <direction>any</direction>
+      <floating>yes</floating>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>echoreq</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <any>1</any>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309361.0108</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309361.0108</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
     <rule uuid="94b9787c-0092-4c0c-9195-b5dbe1d92862">
       <type>pass</type>
       <interface>lan,opt1,opt2</interface>
@@ -826,6 +982,34 @@
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
+    <rule uuid="75e5605a-63fa-48cc-bb28-da532df2beed">
+      <type>pass</type>
+      <interface>lan,opt1,opt2</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Reply</descr>
+      <direction>any</direction>
+      <floating>yes</floating>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>echorep</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <any>1</any>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309376.6044</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309376.6044</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
     <rule uuid="f3672c69-93a0-4fc2-a0e1-722e863e5b70">
       <type>block</type>
       <ipprotocol>inet</ipprotocol>
@@ -850,6 +1034,33 @@
       <created>
         <username>root@100.100.6.3</username>
         <time>1746006814.813</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule uuid="e0e53fdc-a37a-4fa6-a133-bb179c492731">
+      <type>block</type>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Redirect</descr>
+      <direction>any</direction>
+      <floating>yes</floating>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>redir</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <any>1</any>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309390.9857</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309390.9857</time>
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
@@ -881,7 +1092,7 @@
     <rule uuid="357ad741-c83c-4c8f-8d4c-ca8e0f27d943">
       <type>pass</type>
       <interface>wan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <descr>Http server reachability from the wan to the dmz</descr>
       <direction>in</direction>
@@ -897,7 +1108,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745825771.7113</time>
+        <time>1747309517.4263</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -909,7 +1120,7 @@
     <rule uuid="89c172d7-5441-4126-9cba-50a6bd0180e4">
       <type>pass</type>
       <interface>wan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <descr>Https rule for forwarding into the dmz network</descr>
       <direction>in</direction>
@@ -925,7 +1136,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745825794.5935</time>
+        <time>1747309530.1289</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -942,7 +1153,7 @@
       <interface>wan</interface>
       <statetype>keep state</statetype>
       <protocol>tcp</protocol>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <destination>
         <address>web_server</address>
         <port>80</port>
@@ -963,7 +1174,7 @@
       <interface>wan</interface>
       <statetype>keep state</statetype>
       <protocol>tcp</protocol>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <destination>
         <address>web_server</address>
         <port>443</port>
@@ -979,7 +1190,7 @@
     <rule uuid="d71f2961-2dae-4d76-8c3e-3d9e8d4e3f5f">
       <type>pass</type>
       <interface>wan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>in</direction>
       <category>DNS</category>
@@ -994,7 +1205,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745826711.2488</time>
+        <time>1747309576.2685</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -1011,7 +1222,7 @@
       <interface>wan</interface>
       <statetype>keep state</statetype>
       <protocol>tcp</protocol>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <destination>
         <address>proxy_server</address>
         <port>80</port>
@@ -1051,6 +1262,33 @@
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
+    <rule uuid="f7e07229-439f-466f-a4cd-1212ac053584">
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Request</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>echoreq</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <network>lan</network>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309606.9183</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309606.9183</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
     <rule uuid="13226156-e9de-4617-bfba-417d2fa64d7d">
       <type>pass</type>
       <interface>wan</interface>
@@ -1075,6 +1313,33 @@
       <created>
         <username>root@100.100.6.3</username>
         <time>1746006270.6447</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule uuid="f24d6bd2-5297-46a3-81a6-c36b05a07df6">
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Reply</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>echorep</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <network>lan</network>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309622.3981</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309622.3981</time>
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
@@ -1105,6 +1370,33 @@
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
+    <rule uuid="18fd3fd9-9c84-49ef-a5f5-e78fb251109e">
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Destination Unreachable</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>unreach</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <network>lan</network>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309643.6827</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309643.6827</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
     <rule uuid="b3c7fd43-fe46-4ed7-96fd-c69de6673e28">
       <type>pass</type>
       <interface>wan</interface>
@@ -1129,6 +1421,33 @@
       <created>
         <username>root@100.100.6.3</username>
         <time>1746006355.2037</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule uuid="092894fe-a938-4a7b-84b6-fd409086933a">
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet6</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Time Exceeded</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>icmp</protocol>
+      <icmptype>timex</icmptype>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <network>lan</network>
+      </destination>
+      <updated>
+        <username>root@100.100.4.100</username>
+        <time>1747309652.7204</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.4.100</username>
+        <time>1747309652.7204</time>
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
@@ -1160,7 +1479,7 @@
     <rule uuid="061ecb83-e7a0-4cfe-a465-bb5a51547488">
       <type>pass</type>
       <interface>lan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <descr>Proxy server forwarding rule</descr>
       <direction>in</direction>
@@ -1176,7 +1495,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745835992.5582</time>
+        <time>1747309423.7484</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -1188,7 +1507,7 @@
     <rule uuid="04444737-5de6-4d16-9a19-7b2e2b982f4f">
       <type>pass</type>
       <interface>lan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>in</direction>
       <quick>1</quick>
@@ -1202,7 +1521,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745835090.6388</time>
+        <time>1747309438.1967</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -1214,7 +1533,7 @@
     <rule uuid="eadb91df-2e3e-4aea-897f-9155bb981815">
       <type>pass</type>
       <interface>lan</interface>
-      <ipprotocol>inet</ipprotocol>
+      <ipprotocol>inet46</ipprotocol>
       <statetype>keep state</statetype>
       <direction>in</direction>
       <quick>1</quick>
@@ -1228,7 +1547,7 @@
       </destination>
       <updated>
         <username>root@100.100.4.100</username>
-        <time>1745835135.6716</time>
+        <time>1747309450.0344</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
@@ -1368,9 +1687,9 @@
     <column_count>2</column_count>
   </widgets>
   <revision>
-    <username>root@100.100.6.3</username>
-    <time>1746009401.8489</time>
-    <description>/firewall_rules.php made changes</description>
+    <username>(root)</username>
+    <time>1748501461.2328</time>
+    <description>Updated plugin interface configuration</description>
   </revision>
   <OPNsense>
     <Firewall>
@@ -2115,7 +2434,9 @@
   <ppps>
     <ppp/>
   </ppps>
-  <virtualip version="1.0.0"/>
+  <virtualip version="1.0.0">
+    <vip/>
+  </virtualip>
   <staticroutes version="1.0.0">
     <route uuid="55bb41af-018b-48d2-ad37-b291254557f7">
       <network>100.100.2.0/24</network>
@@ -2158,4 +2479,31 @@
   <wireless>
     <clone/>
   </wireless>
+  <dhcpdv6>
+    <opt2>
+      <ddnsdomainalgorithm>hmac-md5</ddnsdomainalgorithm>
+      <enable>1</enable>
+      <range>
+        <from>::2</from>
+        <to>::2</to>
+      </range>
+      <prefixrange>
+        <from>::80</from>
+        <to>::80</to>
+        <prefixlength>60</prefixlength>
+      </prefixrange>
+      <dnsserver/>
+      <ntpserver/>
+      <numberoptions>
+        <item/>
+      </numberoptions>
+      <ramode>managed</ramode>
+      <rapriority>medium</rapriority>
+      <ramininterval>200</ramininterval>
+      <ramaxinterval>600</ramaxinterval>
+      <radomainsearchlist/>
+      <radnsserver/>
+    </opt2>
+  </dhcpdv6>
+  <crl/>
 </opnsense>
